@@ -35,7 +35,7 @@ class RandomActivityRepositoryImpl implements RandomActivityRepository {
 
         localDataSource.cacheRandomActivity(remoteActivity);
 
-        return Right(await remoteDataSource.getRandomActivity());
+        return Right(remoteActivity);
       } on ServerException {
         return Left(ServerFailure(errorMessage: 'This is a server exception'));
       }
